@@ -1,0 +1,24 @@
+Segmentation fault — 3 chữ đó đủ làm bất kỳ dev C++ mới học nào toát mồ hôi lạnh.
+
+Bạn vừa chạy chương trình, terminal in ra Segmentation fault (core dumped), và không biết bắt đầu debug từ đâu. 90% trường hợp, lỗi này đến từ một con trỏ đang trỏ vào... không gì cả — tức là nullptr.
+
+Trick đơn giản nhất: kiểm tra con trỏ trước khi dùng.
+
+// Nguy hiểm: dereference thẳng không kiểm tra
+int* ptr = getPointer();
+cout << *ptr; // crash ngay nếu ptr == nullptr
+
+// An toàn: kiểm tra nullptr trước khi dùng
+int* ptr = getPointer();
+if (ptr != nullptr) {
+    cout << *ptr;
+} else {
+    cout << "Con trỏ rỗng, cần xử lý ở đây";
+}
+
+Từ C++11 trở đi, luôn dùng nullptr thay vì NULL hay số 0 — compiler hiểu rõ hơn và có thể bắt lỗi ngay lúc biên dịch thay vì để đến lúc chạy mới crash.
+
+Lưu tip này lại, lần sau gặp segfault bạn biết ngay chỗ đầu tiên cần kiểm tra. Bạn đang gặp lỗi nào trong C++ hay nhất không?
+
+
+#hoclaptrinh #tipslaptrinh #devvietnam #junior_dev #lap_trinh_co_ban #cplusplus #programmingtips
