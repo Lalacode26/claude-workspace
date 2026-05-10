@@ -1,0 +1,9 @@
+# Chỉ track .claude/skills và .claude/workspace
+*
+!.gitignore
+!.claude/
+.claude/*
+!.claude/skills/
+!.claude/skills/**
+!.claude/workspace/
+!.claude/workspace/**
