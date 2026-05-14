@@ -1,0 +1,266 @@
+# VN IT Market Stats — Số liệu cached
+# Schema:
+#   key: slug-stat (dùng cho `lookup <key>`)
+#   title: tên hiển thị
+#   value: số/dải số chính (string để giữ format đẹp, vd "10–15 triệu")
+#   details: list dòng chi tiết (breakdown theo stack/level/city)
+#   source_id: trỏ về sources.yaml (id của nguồn)
+#   source_url_specific: URL bài cụ thể (nếu khác URL gốc nguồn)
+#   year: năm số liệu (KHÔNG phải năm fetch — năm publication của data)
+#   last_updated: YYYY-MM (lần verify cuối)
+#   status: current | outdated | very-outdated (auto-calc dựa trên last_updated)
+#   tags: list tag để fuzzy match
+#   note: ghi chú thêm
+#
+# Quy tắc OUTDATED:
+#   - last_updated <= 18 tháng: current
+#   - 18–36 tháng: outdated (cảnh báo nhẹ)
+#   - > 36 tháng: very-outdated (đừng dùng cho content 2026)
+
+# Ngày tham chiếu hiện tại để tính OUTDATED: 2026-05
+
+stats:
+
+  # ---------- LƯƠNG / SALARY ----------
+
+  - key: salary-fresher-vn-2024
+    title: Lương fresher developer Việt Nam
+    value: "9–16 triệu VND/tháng"
+    details:
+      - "Backend (Java/Node.js/.NET): 10–15 triệu"
+      - "Frontend (React/Vue): 9–14 triệu"
+      - "Mobile (Flutter/React Native): 10–16 triệu"
+      - "Data/AI (Python): 11–17 triệu"
+      - "Khác biệt vùng: HCM cao hơn HN ~5–10%, Đà Nẵng thấp hơn HCM ~15–20%"
+    source_id: itviec-salary-report
+    source_url_specific: https://itviec.com/blog/bao-cao-luong-it-2024
+    year: 2024
+    last_updated: 2024-10
+    status: current
+    tags: [salary, fresher, junior, entry-level, lương]
+
+  - key: salary-mid-vn-2024
+    title: Lương mid-level dev VN (2–4 năm kinh nghiệm)
+    value: "18–35 triệu VND/tháng"
+    details:
+      - "Backend mid: 20–35 triệu"
+      - "Frontend mid: 18–30 triệu"
+      - "Mobile mid: 20–35 triệu"
+      - "DevOps/Cloud mid: 25–40 triệu (cao nhất nhóm mid)"
+      - "AI/ML mid: 25–45 triệu"
+    source_id: itviec-salary-report
+    source_url_specific: https://itviec.com/blog/bao-cao-luong-it-2024
+    year: 2024
+    last_updated: 2024-10
+    status: current
+    tags: [salary, mid-level, lương]
+
+  - key: salary-senior-vn-2024
+    title: Lương senior dev VN (5+ năm kinh nghiệm)
+    value: "35–80 triệu VND/tháng"
+    details:
+      - "Senior backend: 35–60 triệu"
+      - "Tech lead: 50–80 triệu"
+      - "Senior AI/ML: 50–100 triệu (top range cho công ty nước ngoài)"
+      - "Engineering manager: 60–120 triệu"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [salary, senior, tech-lead, lương]
+
+  # ---------- SINH VIÊN & GIÁO DỤC ----------
+
+  - key: it-graduates-per-year
+    title: Số sinh viên IT/CNTT tốt nghiệp/năm tại VN
+    value: "~57.000 sinh viên/năm"
+    details:
+      - "Trong đó chỉ ~35% đáp ứng yêu cầu tuyển dụng thực tế của doanh nghiệp (theo TopDev)"
+      - "Khoảng cách kỹ năng lớn nhất: tiếng Anh, kỹ năng thực chiến (project thật), tư duy giải quyết vấn đề"
+      - "Top 10 trường đào tạo IT có chỉ tiêu lớn nhất: BKHN, BKHCM, ĐH FPT, UIT, KHTN HCM, PTIT, Duy Tân, FPT Polytechnic, ĐH CNTT&TT Thái Nguyên"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [students, graduates, fresher, education, sinh-vien, tot-nghiep]
+
+  - key: it-talent-gap-vn
+    title: Thiếu hụt nhân lực IT VN
+    value: "~150.000–200.000 dev thiếu hụt mỗi năm"
+    details:
+      - "Nhu cầu doanh nghiệp: ~530.000 vị trí IT (2024)"
+      - "Nguồn cung từ trường + thị trường: ~330.000–380.000"
+      - "Gap lớn nhất ở: AI/ML, DevOps/Cloud, Cybersecurity, Data Engineer"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [demand, talent-gap, hiring, thieu-hut, nhu-cau]
+
+  - key: english-bottleneck-vn-dev
+    title: Tỉ lệ dev VN giao tiếp tiếng Anh được trong công việc
+    value: "~30–40% (ước tính, mẫu khảo sát IT)"
+    details:
+      - "Đây là rào cản số 1 cho dev VN tiếp cận thị trường remote / công ty FDI / nước ngoài"
+      - "Lương dev nói được tiếng Anh cao hơn 30–50% so với dev cùng level chỉ làm domestic"
+    source_id: itviec-salary-report
+    year: 2024
+    last_updated: 2024-10
+    status: current
+    tags: [english, soft-skill, remote, fdi, tieng-anh]
+    note: "[1-nguồn — cần verify] Cross-ref nên hỏi cộng đồng / khảo sát thêm."
+
+  # ---------- TOP STACK / CÔNG NGHỆ ----------
+
+  - key: top-stack-hiring-vn-2024
+    title: Top stack tuyển dụng nhiều nhất VN
+    value: "JavaScript/TS > Java > Python > PHP > .NET"
+    details:
+      - "1. JavaScript/TypeScript (React, Node.js, Next.js) — phủ web full-stack"
+      - "2. Java (Spring Boot) — backend enterprise, ngân hàng, fintech"
+      - "3. Python — AI/ML, data, automation"
+      - "4. PHP (Laravel) — agency, outsource SME"
+      - "5. .NET (C#) — enterprise, gov-tech, ngân hàng VN truyền thống"
+      - "Mobile: Flutter > React Native > Native (Swift/Kotlin)"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [stack, technology, language, framework, top-stack, cong-nghe]
+
+  - key: ai-ml-demand-vn
+    title: Nhu cầu nhân lực AI/ML tại VN
+    value: "Tăng trưởng ~30–40%/năm về số job posting"
+    details:
+      - "AI Engineer fresher: 12–20 triệu (cao hơn fresher backend thông thường)"
+      - "Senior AI/ML: 50–100 triệu (top range)"
+      - "Stack hot: Python + PyTorch/TensorFlow, LangChain, RAG, vector DB"
+      - "Công ty tuyển nhiều: VinAI, FPT AI, Zalo AI, MoMo, VNG, Got It AI"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [ai, ml, machine-learning, llm, hot-job, ai-engineer]
+
+  # ---------- CÔNG TY ----------
+
+  - key: top-it-employers-vn
+    title: Top công ty IT tuyển dụng lớn nhất VN
+    value: "FPT Software, VNG, VNPT, Viettel, MoMo, Shopee VN, Tiki, TikTok VN, Grab VN, Samsung R&D"
+    details:
+      - "Tier 1 (lương cao + remote): TikTok, Shopee, Grab, Agoda, Klook, Got It"
+      - "Tier 1 VN bản địa: VNG, MoMo, Tiki, FPT (FPT Software, FPT AI, FPT Smart Cloud)"
+      - "Tier 2 outsource lớn: FPT Software, NashTech, KMS Technology, TMA Solutions, NaviWorld"
+      - "Tier ngân hàng/fintech: Techcombank, VPBank, MB Bank, Timo, Cake"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [company, employer, top-company, cong-ty, tuyen-dung]
+
+  # ---------- THỊ TRƯỜNG / MARKET ----------
+
+  - key: it-market-size-vn
+    title: Quy mô ngành CNTT Việt Nam
+    value: "~148 tỷ USD doanh thu (2023, theo Bộ TT&TT)"
+    details:
+      - "Tăng trưởng ~10–12%/năm"
+      - "Xuất khẩu phần mềm: ~6 tỷ USD/năm"
+      - "Số doanh nghiệp công nghệ số: ~50.000 (2024)"
+    source_id: mic-gov
+    year: 2023
+    last_updated: 2024-12
+    status: current
+    tags: [market-size, gdp, ict, quy-mo, kinh-te-so]
+
+  - key: remote-work-adoption-vn
+    title: Tỉ lệ dev VN làm remote/hybrid
+    value: "~50–60% công ty IT VN cho phép hybrid; ~15–20% full-remote"
+    details:
+      - "Full-remote phổ biến nhất ở: startup, công ty Singapore/Mỹ tuyển dev VN, agency outsource freelance"
+      - "Đa số công ty VN bản địa (VNG, MoMo, FPT) vẫn ưu tiên hybrid 2–3 ngày/tuần"
+      - "Lương full-remote (cho công ty nước ngoài): có thể cao hơn 50–100% so với mức domestic cùng level"
+    source_id: vietnamworks-it
+    year: 2024
+    last_updated: 2024-09
+    status: current
+    tags: [remote, hybrid, work-from-home, lam-tu-xa]
+
+  # ---------- HÀNH VI / BEHAVIOR ----------
+
+  - key: vn-dev-job-search-channel
+    title: Kênh tìm việc phổ biến nhất của dev VN
+    value: "ITviec > TopDev > LinkedIn > Facebook group > VietnamWorks"
+    details:
+      - "ITviec dẫn đầu nhóm dev có 1+ năm kinh nghiệm"
+      - "TopDev mạnh cho fresher + job board doanh nghiệp lớn"
+      - "LinkedIn quan trọng cho dev hướng tới công ty nước ngoài / remote"
+      - "Facebook group (vd: VietDev, Anh em IT...) — kênh referral nhanh, ít chính thống"
+    source_id: itviec-salary-report
+    year: 2024
+    last_updated: 2024-10
+    status: current
+    tags: [job-search, channel, recruitment, tim-viec]
+
+  - key: vn-dev-learning-channel
+    title: Kênh học lập trình phổ biến của sinh viên/dev VN
+    value: "YouTube > Udemy > F8 > CodeGym > FUNiX > Coursera"
+    details:
+      - "YouTube: kênh entry tự học (Easy Frontend, Sơn Đặng, F8 Official, Coders X...)"
+      - "Bootcamp offline + online: CodeGym, MindX, Techmaster, NIIT, FPT Polytechnic"
+      - "Online course: Udemy phổ biến nhất (giá rẻ), Coursera cho cert quốc tế"
+      - "Cộng đồng học: Discord, Facebook group, Zalo group (private)"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [learning, education, bootcamp, hoc-lap-trinh, tu-hoc]
+
+  # ---------- AI ADOPTION ----------
+
+  - key: ai-tool-adoption-vn-dev
+    title: Tỉ lệ dev VN dùng AI coding tool hàng ngày
+    value: "~70–80% (ước tính từ khảo sát cộng đồng)"
+    details:
+      - "Top tool: ChatGPT > GitHub Copilot > Claude > Cursor > Gemini"
+      - "Dùng cho: code generation, debug, code review, học kiến thức mới"
+      - "Công ty VN bắt đầu yêu cầu kỹ năng prompt engineering trong JD (2025)"
+    source_id: github-octoverse
+    source_url_specific: https://github.blog/news-insights/octoverse/octoverse-2024/
+    year: 2024
+    last_updated: 2024-10
+    status: current
+    tags: [ai, copilot, chatgpt, productivity, ai-tool]
+    note: "VN xếp top fastest-growing dev community 2024 theo GitHub Octoverse."
+
+  # ---------- CHI PHÍ HỌC ----------
+
+  - key: bootcamp-price-range-vn
+    title: Học phí bootcamp lập trình tại VN
+    value: "15–80 triệu VND cho 1 khoá 3–6 tháng"
+    details:
+      - "Khoá ngắn (3 tháng, 1 stack): 15–30 triệu (FUNiX, F8 Premium)"
+      - "Khoá full-stack 6 tháng offline: 40–80 triệu (CodeGym, MindX, Techmaster, NIIT)"
+      - "Bootcamp data/AI: 50–100 triệu (chuyên sâu hơn)"
+      - "So với học đại học 4 năm: ~200–400 triệu tổng (trường công), ~400–800 triệu (trường tư/quốc tế)"
+    source_id: topdev-report
+    year: 2024
+    last_updated: 2024-12
+    status: current
+    tags: [bootcamp, hoc-phi, price, course, khoa-hoc]
+    note: "Số tham khảo — học phí cụ thể từng trung tâm thay đổi theo khoá/khuyến mãi."
+
+  # ---------- VÍ DỤ STAT OUTDATED (giữ làm reference cho refresh logic) ----------
+
+  - key: dev-population-vn-2022
+    title: Tổng số developer tại Việt Nam (số cũ)
+    value: "~530.000 developer (2022)"
+    details:
+      - "Số này được TopDev ước tính 2022 — đã có báo cáo mới 2024."
+      - "Tham khảo cũ; nên dùng 'salary-fresher-vn-2024' và 'it-talent-gap-vn' thay thế."
+    source_id: topdev-report
+    year: 2022
+    last_updated: 2022-06
+    status: outdated
+    tags: [developer, total, population, so-luong-dev]
+    note: "[OUTDATED — đã 47 tháng] Refresh từ TopDev 2024 nếu user yêu cầu cite con số tổng."

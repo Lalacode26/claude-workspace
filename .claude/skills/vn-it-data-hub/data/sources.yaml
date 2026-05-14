@@ -1,0 +1,123 @@
+# VN IT Market Data — Nguồn chính thống
+# Schema:
+#   id: slug-ngắn (key dùng để reference từ stats.yaml)
+#   name: tên đầy đủ
+#   publisher: cơ quan/công ty phát hành
+#   url: URL trang chính của báo cáo (preferred: trang index, không phải PDF cụ thể)
+#   language: vi | en
+#   cycle: annual | quarterly | continuous (live data) | irregular
+#   last_published: YYYY-MM (lần ra báo cáo gần nhất biết được)
+#   focus: tag chủ đề chính nguồn này mạnh
+#   reliability: high | medium | low (high = số liệu primary, có method)
+#   note: ghi chú thêm nếu cần
+
+sources:
+  - id: topdev-report
+    name: TopDev Vietnam IT Market Report
+    publisher: TopDev
+    url: https://topdev.vn/blog/bao-cao-thi-truong-it-viet-nam/
+    language: vi
+    cycle: annual
+    last_published: 2024-12
+    focus: [salary, demand, top-stack, top-company, fresher, gap]
+    reliability: high
+    note: Báo cáo annual sâu nhất về thị trường IT VN; số liệu salary có method khảo sát công khai.
+
+  - id: itviec-salary-report
+    name: ITviec IT Salary Report Vietnam
+    publisher: ITviec
+    url: https://itviec.com/blog/bao-cao-luong-it/
+    language: vi
+    cycle: annual
+    last_published: 2024-10
+    focus: [salary, by-stack, by-level, by-city]
+    reliability: high
+    note: Mạnh về breakdown lương theo stack/level/thành phố. Có version EN.
+
+  - id: vietnamworks-it
+    name: VietnamWorks IT Salary & Hiring Trends
+    publisher: VietnamWorks (Navigos Group)
+    url: https://www.vietnamworks.com/hr-insider-vn/
+    language: vi
+    cycle: annual
+    last_published: 2024-09
+    focus: [salary, hiring-trend, demand-supply]
+    reliability: high
+    note: Mạnh phần demand-supply, ít chi tiết về stack cụ thể hơn TopDev/ITviec.
+
+  - id: gso-stats
+    name: Tổng cục Thống kê Việt Nam (GSO)
+    publisher: General Statistics Office of Vietnam
+    url: https://www.gso.gov.vn/
+    language: vi
+    cycle: continuous
+    last_published: 2025-Q4
+    focus: [education, graduates, gdp, labor-force]
+    reliability: high
+    note: Nguồn primary cho số sinh viên tốt nghiệp, dân số lao động. Khó tìm filter "IT" cụ thể, thường phải cross-ref với báo cáo Bộ GD-ĐT.
+
+  - id: mic-gov
+    name: Bộ Thông tin & Truyền thông
+    publisher: Bộ TT&TT Việt Nam
+    url: https://mic.gov.vn/
+    language: vi
+    cycle: irregular
+    last_published: 2024-12
+    focus: [digital-economy, ict-policy, software-export]
+    reliability: high
+    note: Nguồn chính sách + số liệu vĩ mô ngành CNTT. Hay có công bố cuối năm.
+
+  - id: linkedin-vn-talent
+    name: LinkedIn Talent Insights Vietnam
+    publisher: LinkedIn
+    url: https://www.linkedin.com/business/talent/blog
+    language: en
+    cycle: quarterly
+    last_published: 2025-Q1
+    focus: [hiring-trend, skills, remote-work]
+    reliability: medium
+    note: Mạnh về skill trend toàn cầu, kém về detail VN. Dùng làm cross-ref.
+
+  - id: stack-overflow-survey
+    name: Stack Overflow Developer Survey
+    publisher: Stack Overflow
+    url: https://survey.stackoverflow.co/
+    language: en
+    cycle: annual
+    last_published: 2025-06
+    focus: [global-stack-trend, satisfaction, tool-adoption]
+    reliability: high
+    note: Global, không filter VN được. Dùng cho trend stack toàn cầu.
+
+  - id: github-octoverse
+    name: GitHub Octoverse Report
+    publisher: GitHub
+    url: https://octoverse.github.com/
+    language: en
+    cycle: annual
+    last_published: 2024-10
+    focus: [language-trend, open-source, ai-adoption]
+    reliability: high
+    note: VN ranking trong top fastest-growing dev community năm 2024. Cross-ref tốt cho trend AI/ML.
+
+  - id: glints-salary
+    name: Glints Vietnam Salary Report
+    publisher: Glints
+    url: https://glints.com/vn/blog/
+    language: vi
+    cycle: annual
+    last_published: 2024-08
+    focus: [salary, junior, fresher, sea-region]
+    reliability: medium
+    note: Tập trung junior/fresher, mẫu nhỏ hơn ITviec nhưng có góc nhìn SEA.
+
+  - id: ministry-education
+    name: Bộ Giáo dục & Đào tạo Việt Nam
+    publisher: Bộ GD&ĐT
+    url: https://moet.gov.vn/
+    language: vi
+    cycle: irregular
+    last_published: 2025-03
+    focus: [graduates, university-quota, it-major]
+    reliability: high
+    note: Số chỉ tiêu tuyển sinh IT các trường, số sinh viên tốt nghiệp theo ngành.

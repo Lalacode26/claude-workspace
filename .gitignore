@@ -1,10 +1,13 @@
-# Chỉ track .claude/skills, .claude/workspace, và posts/
+# Chỉ track .claude/skills, .claude/agents, .claude/workspace, và posts/
 *
 !.gitignore
+!README.md
 !.claude/
 .claude/*
 !.claude/skills/
 !.claude/skills/**
+!.claude/agents/
+!.claude/agents/**
 !.claude/workspace/
 !.claude/workspace/**
 !posts/

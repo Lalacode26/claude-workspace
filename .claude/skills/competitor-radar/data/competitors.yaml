@@ -1,0 +1,338 @@
+# Competitor Radar — Fanpage đối thủ ngành đào tạo lập trình VN
+#
+# Schema:
+#   id: slug-ngắn (dùng cho `info <id>`, `scan <id>`)
+#   name: tên hiển thị
+#   aliases: list từ khoá phụ để fuzzy match (vd: "f8", "fullstack edu", "son dang")
+#   url_fb: URL fanpage Facebook chính
+#   url_site: URL website chính (nếu có)
+#   tier: 1 (lớn — 200K+ follower) / 2 (trung — 50–200K) / 3 (nhỏ — dưới 50K)
+#   follower_estimate: ước tính follower 2024-2025 (string, vd "~500K")
+#   segment: bootcamp-offline | online-course | online-university | university | mixed | job-board
+#   positioning: 1 câu mô tả định vị (vd "bootcamp offline 6 tháng, học phí trung bình")
+#   target_audience: list persona chính họ nhắm tới
+#   content_pillars: 3–6 trụ content chính (đây là field quan trọng cho gap-analysis)
+#   format_strengths: format họ làm tốt nhất (carousel, short video, livestream, long post...)
+#   posting_frequency: rough (daily / 3-5/week / weekly / monthly)
+#   engagement_strong_examples: 1–3 ví dụ post hot của họ (nếu có note)
+#   weakness_or_gap: chỗ họ chưa khai thác / làm yếu
+#   last_reviewed: YYYY-MM (lần review/update data này gần nhất)
+#   note: ghi chú đặc thù
+#   change_log: list các thay đổi đáng chú ý theo thời gian (optional)
+
+competitors:
+
+  # ---------- TIER 1: LỚN, ENGAGEMENT MẠNH ----------
+
+  - id: f8
+    name: F8 — Fullstack.edu.vn
+    aliases: [f8, fullstack, son-dang, sondang, f8-official]
+    url_fb: https://www.facebook.com/f8vnofficial
+    url_site: https://fullstack.edu.vn
+    tier: 1
+    follower_estimate: "~400K (FB) + ~1M (YouTube)"
+    segment: online-course
+    positioning: "Khoá học online free + premium, founder Sơn Đặng nổi tiếng cộng đồng frontend VN."
+    target_audience: [sinh-vien-it, tu-hoc, frontend-fresher, doi-nganh]
+    content_pillars:
+      - Tutorial video ngắn (HTML/CSS/JS bài tập thực hành)
+      - Roadmap học frontend từ 0
+      - Khoe học viên job offer / lương tăng (testimonial)
+      - Meme dev / hài về nghề lập trình
+      - Live Q&A với Sơn Đặng
+    format_strengths: [short-video, long-tutorial-youtube, meme-image]
+    posting_frequency: daily
+    engagement_strong_examples:
+      - Video "Roadmap tự học frontend 2024" — viral nhờ chi tiết, dễ hiểu
+      - Bài flexing học viên fresher offer 20+ triệu sau 6 tháng học
+    weakness_or_gap: "Ít content backend chuyên sâu; thiếu góc career mid/senior; ít carousel infographic (chủ yếu video)."
+    last_reviewed: 2024-12
+    note: "Tận dụng cá nhân hoá thương hiệu Sơn Đặng — khó copy bằng brand-only. Học format ngắn + roadmap thay vì cố clone."
+
+  - id: funix
+    name: FUNiX
+    aliases: [funix, fpt-funix, funix-edu]
+    url_fb: https://www.facebook.com/funix.edu.vn
+    url_site: https://funix.edu.vn
+    tier: 1
+    follower_estimate: "~300K"
+    segment: online-university
+    positioning: "Đại học online linh hoạt, mentor 1-1, gắn FPT brand. Phù hợp người đi làm chuyển ngành."
+    target_audience: [doi-nganh, di-lam-roi, sinh-vien-lon-tuoi, parent-cho-con-hoc]
+    content_pillars:
+      - Câu chuyện học viên chuyển ngành (kế toán → dev, GV → dev...)
+      - Cố vấn từ mentor là dev senior công ty lớn
+      - Giới thiệu chuyên ngành / chương trình học
+      - Thông tin tuyển sinh + học bổng
+      - Sự kiện online (webinar, ngày hội việc làm ảo)
+    format_strengths: [long-post-story, testimonial-video, livestream-tuyen-sinh]
+    posting_frequency: daily
+    engagement_strong_examples:
+      - Series "Tôi 35 tuổi học lại lập trình" — engagement cao nhờ relate người chuyển ngành
+    weakness_or_gap: "Thiếu content technical hands-on; nội dung hơi heavy-promote tuyển sinh; ít meme / format ngắn."
+    last_reviewed: 2024-12
+
+  - id: mindx
+    name: MindX Technology School
+    aliases: [mindx, mindx-school, mindx-tech]
+    url_fb: https://www.facebook.com/mindxschool
+    url_site: https://mindx.edu.vn
+    tier: 1
+    follower_estimate: "~250K"
+    segment: mixed
+    positioning: "Đào tạo IT đa lứa tuổi (kid + teen + adult), nhiều track: web, mobile, data, game, AI, design."
+    target_audience: [phu-huynh, hoc-sinh-thpt, sinh-vien, di-lam-tre]
+    content_pillars:
+      - Học viên teen được giải / được học bổng quốc tế
+      - Dự án thực tế của học viên (game, web app)
+      - Khoá học mới / khai giảng
+      - Sự kiện offline (hackathon, demo day)
+      - Bản tin AI/tech trend (mức cơ bản)
+    format_strengths: [carousel-event, video-demo-project, reel-hoc-vien]
+    posting_frequency: daily
+    engagement_strong_examples:
+      - Demo day video hoc viên teen 14 tuổi xây app — chia sẻ nhiều
+    weakness_or_gap: "Thiếu content tutorial trực tiếp; content thiên về 'show off' nhiều hơn 'value'; ít chia sẻ kiến thức adult/career."
+    last_reviewed: 2024-12
+
+  # ---------- TIER 2: TRUNG ----------
+
+  - id: codegym
+    name: CodeGym Vietnam
+    aliases: [codegym, code-gym, codegym-vn]
+    url_fb: https://www.facebook.com/CodeGymVietnam
+    url_site: https://codegym.vn
+    tier: 2
+    follower_estimate: "~120K"
+    segment: bootcamp-offline
+    positioning: "Bootcamp offline 6 tháng, Java/.NET là stack mạnh truyền thống, mở rộng sang Frontend/Mobile/Data."
+    target_audience: [sinh-vien-nam-3-4, doi-nganh, tot-nghiep-cao-dang]
+    content_pillars:
+      - Học viên tốt nghiệp có việc (testimonial)
+      - Thông tin khoá học + khai giảng
+      - Tips lập trình ngắn (mức beginner)
+      - Sự kiện workshop / demo day
+      - Roadmap nghề nghiệp dev
+    format_strengths: [event-poster, long-post-testimonial, livestream-tu-van]
+    posting_frequency: 3-5/week
+    engagement_strong_examples:
+      - Series "Học viên CodeGym đầu quân tại VinAI / FPT Software" — đều đặn
+    weakness_or_gap: "Content tutorial chưa đầu tư; ít short video; carousel infographic chưa khai thác; thiếu content cho học viên đã đi làm muốn nâng cấp."
+    last_reviewed: 2024-12
+    note: "[NÀY LÀ BRAND CỦA USER] Khi gap-analysis, KHÔNG coi CodeGym là 'đối thủ' — đây là page của user."
+
+  - id: techmaster
+    name: Techmaster Vietnam
+    aliases: [techmaster, tech-master]
+    url_fb: https://www.facebook.com/techmaster.vn
+    url_site: https://techmaster.vn
+    tier: 2
+    follower_estimate: "~100K"
+    segment: bootcamp-offline
+    positioning: "Bootcamp offline lâu năm tại HN, mạnh Java/Android/Go. Founder Hiếu IT khá có tiếng."
+    target_audience: [sinh-vien-bk, sinh-vien-ptit, doi-nganh-tech]
+    content_pillars:
+      - Bài viết kỹ thuật sâu (Java/Go/Android)
+      - Live talk / webinar với founder & guest từ FPT, VNG
+      - Tin tuyển dụng đối tác doanh nghiệp
+      - Khoá học mới
+      - Trend ngành (AI, blockchain — mức analysis)
+    format_strengths: [long-post-technical, livestream-talk, link-blog]
+    posting_frequency: 3-5/week
+    engagement_strong_examples:
+      - Livestream "Lương dev Go ở VN" với founder — engagement cao trong nhóm dev có 1-3 năm KN
+    weakness_or_gap: "Visual yếu (ít carousel đẹp); thiếu content cho fresher hoàn toàn / sinh viên mới bắt đầu; ít engagement bait nhẹ."
+    last_reviewed: 2024-12
+
+  - id: niit-vn
+    name: NIIT Vietnam
+    aliases: [niit, niit-vietnam, niit-vn]
+    url_fb: https://www.facebook.com/NIITVietnam
+    url_site: https://niit.edu.vn
+    tier: 2
+    follower_estimate: "~80K"
+    segment: bootcamp-offline
+    positioning: "Franchise giáo dục IT quốc tế (gốc Ấn Độ), chương trình 2 năm có bằng. Truyền thống, ổn định."
+    target_audience: [phu-huynh, hoc-sinh-vua-tot-nghiep-thpt, tim-bang]
+    content_pillars:
+      - Tuyển sinh + học bổng + chương trình quốc tế
+      - Học viên du học / làm việc nước ngoài
+      - Demo project + lễ tốt nghiệp
+      - Sự kiện hợp tác doanh nghiệp
+      - Tin ngành chung
+    format_strengths: [poster-tuyen-sinh, event-photo, video-le-tot-nghiep]
+    posting_frequency: weekly
+    engagement_strong_examples: []
+    weakness_or_gap: "Content thiên về formal/tuyển sinh, ít value content; engagement chậm; thiếu tone gần gũi cho Gen Z."
+    last_reviewed: 2024-12
+
+  - id: fpt-polytechnic-it
+    name: FPT Polytechnic — Ngành CNTT
+    aliases: [fpt-poly, fpt-polytechnic, fpt-cnt]
+    url_fb: https://www.facebook.com/caodangFPT
+    url_site: https://caodang.fpt.edu.vn
+    tier: 2
+    follower_estimate: "~200K (tổng trường)"
+    segment: university
+    positioning: "Cao đẳng FPT — chương trình 2 năm thực hành, gắn brand FPT, dễ tuyển vào FPT Software."
+    target_audience: [hoc-sinh-thpt, phu-huynh, tot-nghiep-12]
+    content_pillars:
+      - Đời sống sinh viên FPT Poly (fun, trẻ)
+      - Sự kiện trường + cuộc thi học sinh
+      - Tuyển sinh + chương trình học
+      - Học viên có việc tại FPT Software / startup
+      - Ngày hội tuyển dụng
+    format_strengths: [reel-doi-song-sv, carousel-event, photo-album]
+    posting_frequency: daily
+    engagement_strong_examples:
+      - Reel đời sống SV — engagement cao nhờ vibe trẻ
+    weakness_or_gap: "Ít content kỹ thuật chuyên sâu; chủ yếu lifestyle + branding; không phù hợp adult muốn học nghiêm túc."
+    last_reviewed: 2024-12
+
+  - id: got-it
+    name: Got It Education / Got It Vietnam
+    aliases: [got-it, gotit, got-it-edu]
+    url_fb: https://www.facebook.com/gotit.ai
+    url_site: https://gotit.ai
+    tier: 2
+    follower_estimate: "~60K"
+    segment: online-course
+    positioning: "Công ty AI VN-Mỹ, làm thêm mảng đào tạo AI/ML cho dev. Mạnh về tech credibility."
+    target_audience: [dev-co-kinh-nghiem, sinh-vien-it-gioi, AI-enthusiast]
+    content_pillars:
+      - Tuyển dụng Got It (engineering job posting)
+      - Bài blog kỹ thuật về AI/LLM
+      - Founder Hùng Trần chia sẻ về startup
+      - Khoá AI/ML training
+      - Tech talk nội bộ
+    format_strengths: [long-post-blog-share, link-medium, livestream-tech]
+    posting_frequency: weekly
+    engagement_strong_examples:
+      - Founder Hùng Trần post — engagement cao nhờ personal brand
+    weakness_or_gap: "Không nhắm sinh viên/fresher; content quá technical cho mass; ít content cho người mới."
+    last_reviewed: 2024-12
+
+  # ---------- TIER 3: NHỎ HOẶC NGÁCH ----------
+
+  - id: coders-x
+    name: Coders X
+    aliases: [coders-x, codersx, coders]
+    url_fb: https://www.facebook.com/codersxhcm
+    url_site: https://codersx.com
+    tier: 3
+    follower_estimate: "~30K"
+    segment: bootcamp-offline
+    positioning: "Bootcamp full-stack JavaScript tại HCM, founder Phạm Huy Hoàng (tnhh ToiDiCodeDạo)."
+    target_audience: [sinh-vien-it-hcm, doi-nganh-it]
+    content_pillars:
+      - Founder content (ToiDiCodeDạo) — personal brand
+      - Tips fullstack JS / Node.js / React
+      - Học viên tốt nghiệp & việc làm
+      - Sự kiện offline / meetup
+      - Career advice / interview tips
+    format_strengths: [long-post-founder, blog-share, livestream]
+    posting_frequency: 3-5/week
+    engagement_strong_examples:
+      - Post của founder về interview thực chiến — engagement tốt
+    weakness_or_gap: "Brand fanpage yếu hơn brand cá nhân của founder; ít content visual; chỉ tập trung JS."
+    last_reviewed: 2024-12
+
+  - id: fpt-aptech
+    name: FPT Aptech
+    aliases: [fpt-aptech, aptech]
+    url_fb: https://www.facebook.com/fpt.aptech
+    url_site: https://aptech.fpt.edu.vn
+    tier: 3
+    follower_estimate: "~50K"
+    segment: bootcamp-offline
+    positioning: "Franchise IT Ấn Độ, học theo module, gắn brand FPT."
+    target_audience: [hoc-sinh-thpt, doi-nganh]
+    content_pillars:
+      - Tuyển sinh + khuyến mãi
+      - Lễ tốt nghiệp + học viên đi làm
+      - Workshop + sự kiện
+      - Giảng viên / chuyên gia chia sẻ
+      - Tin ngành IT
+    format_strengths: [poster, event-photo]
+    posting_frequency: 3-5/week
+    weakness_or_gap: "Content khá rập khuôn franchise; ít sáng tạo định dạng; engagement thấp so với follower."
+    last_reviewed: 2024-12
+
+  # ---------- ECOSYSTEM PAGES (không trực tiếp đào tạo nhưng cạnh tranh content space) ----------
+
+  - id: itviec
+    name: ITviec
+    aliases: [itviec, it-viec]
+    url_fb: https://www.facebook.com/itviec
+    url_site: https://itviec.com
+    tier: 1
+    follower_estimate: "~200K"
+    segment: job-board
+    positioning: "Job board IT lớn nhất VN; làm content lương + career advice rất tốt."
+    target_audience: [dev-co-1-nam-kn-tro-len, tim-viec, nang-cap-su-nghiep]
+    content_pillars:
+      - Báo cáo lương IT (annual + quarterly)
+      - Career advice & interview tips
+      - Soft skill cho dev
+      - Trend ngành + insight từ HR/CTO
+      - Job opening hot
+    format_strengths: [carousel-infographic, long-post-insight, link-blog]
+    posting_frequency: daily
+    engagement_strong_examples:
+      - Carousel báo cáo lương IT 2024 — viral mỗi năm
+    weakness_or_gap: "Không nhắm fresher từ con số 0; ít content tutorial; thiên về 'đã có việc' rồi muốn nâng cấp."
+    last_reviewed: 2024-12
+    note: "Đối thủ content space dù không trực tiếp đào tạo. Học format carousel infographic của ITviec."
+
+  - id: topdev
+    name: TopDev
+    aliases: [topdev, top-dev]
+    url_fb: https://www.facebook.com/topdev.vn
+    url_site: https://topdev.vn
+    tier: 1
+    follower_estimate: "~180K"
+    segment: job-board
+    positioning: "Job board IT + sự kiện ngành (Vietnam Web Summit, TopDev Tech Conference)."
+    target_audience: [dev-mid-senior, hr-tech, founder-startup]
+    content_pillars:
+      - Báo cáo thị trường IT VN
+      - Sự kiện công nghệ + tech conference
+      - Phỏng vấn CTO / tech lead
+      - Tuyển dụng vị trí senior
+      - Trend công nghệ (AI, Web3, DevOps)
+    format_strengths: [event-poster, long-post-interview, livestream-event]
+    posting_frequency: daily
+    engagement_strong_examples:
+      - Vietnam Web Summit recap — engagement cao
+    weakness_or_gap: "Nhắm B2B/senior nhiều; ít cho sinh viên/fresher; content tutorial hầu như không có."
+    last_reviewed: 2024-12
+
+# ---------- CONTENT PILLAR MATRIX (dùng cho gap-analysis) ----------
+# Tổng hợp pillar mà các competitor đang phủ — phục vụ check OVER-SATURATED vs GAP nhanh.
+
+pillar_saturation_index:
+  # 5+ competitor làm: SATURATED — không nên copy
+  saturated:
+    - testimonial-hoc-vien-co-viec  # FUNiX, MindX, CodeGym, NIIT, FPT Poly, F8 đều làm
+    - thong-bao-tuyen-sinh-khoa-moi  # gần như mọi page làm
+    - le-tot-nghiep-event-recap
+    - tips-lap-trinh-beginner-html-css  # F8, MindX, CodeGym đều làm — quá đông
+
+  # 2-4 competitor: TRUNG BÌNH — vẫn làm được nếu có góc riêng
+  medium:
+    - roadmap-hoc-tu-0  # F8 mạnh nhất, vài page khác làm thường
+    - career-advice-interview-tips  # ITviec mạnh, Coders X có chút
+    - trend-ngành-AI  # TopDev, Got It, MindX (mức cơ bản)
+    - lifestyle-sinh-vien-it  # FPT Poly, MindX
+
+  # 0-1 competitor: GAP — đáng khai thác
+  gap:
+    - content-cho-dev-da-di-lam-muon-nang-cap-mid  # gần như chỉ ITviec phủ một phần
+    - so-sanh-tool-framework-deep-dive  # gần như không có ai làm chuyên
+    - tutorial-AI-tool-cho-dev-fresher  # gap lớn 2026 — AI coding tool nhưng nhắm fresher
+    - case-study-luong-thuc-te-cua-1-dev-co-the  # ITviec làm aggregate stats nhưng không story cá nhân
+    - phong-van-recruiter-it-vn-ho-tim-gi-trong-cv  # gap — nhìn từ phía HR/recruiter
+    - parent-content-cha-me-tu-van-con-hoc-it  # MindX có chút, gap rộng
+    - viet-cv-portfolio-deploy-thuc-te-step-by-step  # nhiều bài lý thuyết, ít hand-holding thực hành
+    - mental-health-burnout-cho-dev-fresher  # gap hoàn toàn
+    - chuyen-nganh-tuoi-30-can-gi  # FUNiX có nhưng góc heavy-promote, gap góc thực tế / brutal honesty
